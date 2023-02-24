@@ -5,23 +5,31 @@ class HmAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: const [
-        Text(
-          "Discover",
-          style: TextStyle(
-            fontSize: 35,
-            fontWeight: FontWeight.bold,
+    return Container(
+      margin: const EdgeInsets.only(
+        left: 25,
+        right: 25,
+        top: 25,
+        bottom: 15,
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: const [
+          Text(
+            "Discover",
+            style: TextStyle(
+              fontSize: 35,
+              fontWeight: FontWeight.bold,
+            ),
           ),
-        ),
-        CircleAvatar(
-          backgroundColor: Colors.indigoAccent,
-          backgroundImage: AssetImage(
-            'assets/images/profile.png',
+          CircleAvatar(
+            backgroundColor: Colors.indigoAccent,
+            backgroundImage: AssetImage(
+              'assets/images/profile.png',
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
