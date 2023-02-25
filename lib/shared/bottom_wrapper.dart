@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:travel_ui01/shared/bottom_snake_bar.dart';
 import 'package:travel_ui01/view/bookmark_view.dart';
 import 'package:travel_ui01/view/home_view.dart';
@@ -33,7 +34,11 @@ class _BottomNavWrapperState extends State<BottomNavWrapper> {
         onItemSelected: (index) => setState(() {
           _selectedIndex = index;
         }),
-      ),
+      ).animate().fade(duration: 850.ms).slideY(
+            begin: 0.5,
+            duration: 850.ms,
+            curve: Curves.easeInOutCubic,
+          ),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:travel_ui01/widget/home_widget/hm_16_sight.dart';
 import 'package:travel_ui01/widget/home_widget/hm_tc_tab_bar.dart';
 import 'package:travel_ui01/widget/home_widget/hm_tc_tab_bar_view.dart';
@@ -33,7 +34,11 @@ class _HmTopContentState extends State<HmTopContent>
       children: [
         HmTcTabBar(controller: _tabController),
         const SizedBox(height: 25),
-        const Hm16Sight(),
+        const Hm16Sight().animate().fade(duration: 850.ms).slideX(
+              begin: -0.5,
+              duration: 850.ms,
+              curve: Curves.easeInOutCubic,
+            ),
         HmTcTabBarView(controller: _tabController),
       ],
     );

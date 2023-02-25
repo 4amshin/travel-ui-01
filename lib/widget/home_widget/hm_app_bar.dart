@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:travel_ui01/theme/color_theme.dart';
 
 class HmAppBar extends StatelessWidget {
   const HmAppBar({Key? key}) : super(key: key);
@@ -23,13 +25,17 @@ class HmAppBar extends StatelessWidget {
             ),
           ),
           CircleAvatar(
-            backgroundColor: Colors.indigoAccent,
+            backgroundColor: primary,
             backgroundImage: AssetImage(
               'assets/images/profile.png',
             ),
           ),
         ],
       ),
-    );
+    ).animate().fade(duration: 850.ms).slideY(
+          begin: -0.5,
+          duration: 850.ms,
+          curve: Curves.easeInOutCubic,
+        );
   }
 }

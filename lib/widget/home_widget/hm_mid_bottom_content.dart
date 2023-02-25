@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:travel_ui01/theme/color_theme.dart';
 
@@ -18,22 +19,30 @@ class HmMidBottomContent extends StatelessWidget {
           const SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              Text(
+            children: [
+              const Text(
                 "Feeling Adventurous?",
                 style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.bold,
                 ),
-              ),
-              Text(
+              ).animate().fade(duration: 850.ms).slideX(
+                    begin: -0.5,
+                    duration: 850.ms,
+                    curve: Curves.easeInOutCubic,
+                  ),
+              const Text(
                 "Show All",
                 style: TextStyle(
                   fontSize: 12,
                   fontWeight: FontWeight.bold,
                   color: primary,
                 ),
-              ),
+              ).animate().fade(duration: 850.ms).slideX(
+                    begin: 0.5,
+                    duration: 850.ms,
+                    curve: Curves.easeInOutCubic,
+                  ),
             ],
           ),
           const SizedBox(height: 10),
@@ -75,7 +84,11 @@ class HmMidBottomContent extends StatelessWidget {
                 );
               },
             ),
-          ),
+          ).animate().fade(duration: 850.ms).slideX(
+                begin: -0.5,
+                duration: 850.ms,
+                curve: Curves.easeInOutCubic,
+              ),
         ],
       ),
     );

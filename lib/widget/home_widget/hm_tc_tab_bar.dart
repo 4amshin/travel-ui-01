@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:tab_indicator_styler/tab_indicator_styler.dart';
 import 'package:travel_ui01/theme/color_theme.dart';
 
@@ -41,7 +42,11 @@ class HmTcTabBar extends StatelessWidget {
           Tab(text: 'Tours'),
           Tab(text: 'Adventures'),
         ],
-      ),
+      ).animate().fade(duration: 850.ms).slideX(
+            begin: -0.5,
+            duration: 850.ms,
+            curve: Curves.easeInOutCubic,
+          ),
     );
   }
 }

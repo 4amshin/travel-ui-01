@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:travel_ui01/theme/color_theme.dart';
 import 'package:travel_ui01/view/detail_view.dart';
 
 import '../../model/sights_model.dart';
 
 class HmTcItems extends StatelessWidget {
-  const HmTcItems({Key? key}) : super(key: key);
+  const HmTcItems({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +22,7 @@ class HmTcItems extends StatelessWidget {
 
           return GestureDetector(
             onTap: () {
-              Navigator.push(
+              Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
                   builder: (context) => DetailView(data: data),
@@ -53,15 +56,32 @@ class HmTcItems extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Align(
+                    Align(
                       alignment: Alignment.topRight,
                       child: CircleAvatar(
                         backgroundColor: Colors.white,
-                        child: Icon(
+                        child: const Icon(
                           Icons.favorite_border_outlined,
                           size: 20,
                           color: primary,
-                        ),
+                        )
+                            .animate()
+                            .shake(
+                              delay: 1.seconds,
+                              hz: 3,
+                              duration: 1.seconds,
+                            )
+                            .scaleXY(
+                              delay: 1.seconds,
+                              end: 1.2,
+                              duration: 300.ms,
+                              curve: Curves.easeOut,
+                            )
+                            .then(delay: 150.ms)
+                            .scaleXY(
+                              end: 1 / 1.2,
+                              curve: Curves.easeIn,
+                            ),
                       ),
                     ),
                     Align(
@@ -79,7 +99,16 @@ class HmTcItems extends StatelessWidget {
                 ),
               ),
             ),
-          );
+          )
+              .animate()
+              .fade(duration: 850.ms)
+              .slideX(
+                begin: 1,
+                duration: 850.ms,
+                curve: Curves.easeInOutCubic,
+              )
+              .then()
+              .shimmer(duration: 2.seconds);
         },
       ),
     );

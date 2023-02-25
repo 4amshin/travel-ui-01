@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 class DtMoreImage extends StatelessWidget {
+  final String? imgUrl;
   final bool? isBottom;
   const DtMoreImage({
     Key? key,
     this.isBottom,
+    required this.imgUrl,
   }) : super(key: key);
 
   @override
@@ -22,12 +24,12 @@ class DtMoreImage extends StatelessWidget {
         ),
       ),
       child: Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/china.jpg'),
+            image: AssetImage('assets/images/$imgUrl'),
             fit: BoxFit.cover,
           ),
-          borderRadius: BorderRadius.all(
+          borderRadius: const BorderRadius.all(
             Radius.circular(10),
           ),
         ),

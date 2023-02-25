@@ -26,6 +26,7 @@ class DetailView extends StatelessWidget {
             right: 0,
             child: DtTopImage(
               imgUrl: data.imgUrl ?? 'default.jpg',
+              heroTag: data.heroTag,
             ),
           ),
           Positioned(

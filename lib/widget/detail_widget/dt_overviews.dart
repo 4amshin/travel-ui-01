@@ -1,8 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-
-import 'package:travel_ui01/theme/color_theme.dart';
 import 'package:travel_ui01/widget/detail_widget/dt_hour_rating.dart';
 
 class DtOverviews extends StatelessWidget {

@@ -4,16 +4,18 @@ import 'package:flutter/material.dart';
 import '../../theme/color_theme.dart';
 
 class DtIconButton extends StatelessWidget {
+  final void Function()? onTap;
   final IconData? icon;
   const DtIconButton({
     Key? key,
     required this.icon,
+    this.onTap,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => Navigator.pop(context),
+      onTap: onTap,
       child: CircleAvatar(
         radius: 20,
         backgroundColor: Colors.white.withOpacity(0.7),

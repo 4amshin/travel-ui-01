@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 import '../../theme/color_theme.dart';
 
@@ -37,6 +38,10 @@ class DtBookingButton extends StatelessWidget {
           )
         ],
       ),
-    );
+    ).animate().fade().slideY(
+          begin: 1,
+          duration: 850.ms,
+          curve: Curves.easeInOutCubic,
+        );
   }
 }
