@@ -9,7 +9,7 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey.withOpacity(0.02),
+      backgroundColor: Colors.blueGrey.withOpacity(0.1),
       body: SafeArea(
         child: ListView(
           children: const [

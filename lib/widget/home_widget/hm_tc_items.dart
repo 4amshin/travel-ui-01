@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:travel_ui01/theme/color_theme.dart';
+import 'package:travel_ui01/view/detail_view.dart';
 
 import '../../model/sights_model.dart';
 
@@ -16,56 +17,66 @@ class HmTcItems extends StatelessWidget {
         itemBuilder: (context, index) {
           final data = sights[index];
 
-          return Container(
-            width: 240,
-            padding: const EdgeInsets.all(18),
-            margin: const EdgeInsets.only(
-              right: 20,
-              top: 15,
-              bottom: 15,
-            ),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30),
-              boxShadow: [
-                BoxShadow(
-                  color: primary.withOpacity(0.4),
-                  offset: const Offset(5, 5),
-                  blurRadius: 5,
-                  spreadRadius: 2,
-                )
-              ],
-              image: DecorationImage(
-                image: AssetImage('assets/images/${data.imgUrl}'),
-                fit: BoxFit.cover,
+          return GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DetailView(data: data),
+                ),
+              );
+            },
+            child: Container(
+              width: 240,
+              padding: const EdgeInsets.all(18),
+              margin: const EdgeInsets.only(
+                right: 20,
+                top: 15,
+                bottom: 15,
               ),
-            ),
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Align(
-                    alignment: Alignment.topRight,
-                    child: CircleAvatar(
-                      backgroundColor: Colors.white,
-                      child: Icon(
-                        Icons.favorite_border_outlined,
-                        size: 20,
-                        color: primary,
-                      ),
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.bottomLeft,
-                    child: Text(
-                      data.name!,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                        fontSize: 15.0,
-                      ),
-                    ),
-                  ),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30),
+                boxShadow: [
+                  BoxShadow(
+                    color: primary.withOpacity(0.4),
+                    offset: const Offset(5, 5),
+                    blurRadius: 5,
+                    spreadRadius: 2,
+                  )
                 ],
+                image: DecorationImage(
+                  image: AssetImage('assets/images/${data.imgUrl}'),
+                  fit: BoxFit.cover,
+                ),
+              ),
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Align(
+                      alignment: Alignment.topRight,
+                      child: CircleAvatar(
+                        backgroundColor: Colors.white,
+                        child: Icon(
+                          Icons.favorite_border_outlined,
+                          size: 20,
+                          color: primary,
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.bottomLeft,
+                      child: Text(
+                        data.name!,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          fontSize: 15.0,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           );
